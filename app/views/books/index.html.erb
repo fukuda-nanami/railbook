@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Country</th>
       <th>Isbn</th>
       <th>Title</th>
       <th>Price</th>
@@ -17,7 +18,8 @@
 
   <tbody>
     <% @books.each do |book| %>
-      <tr>
+      <tr>       
+        <td><%= book.country %></td>
         <td><%= book.isbn %></td>
         <td><%= book.title %></td>
         <td><%= book.price %></td>
@@ -34,4 +36,5 @@
 
 <br>
 
-<%= link_to '出雲商業高校',http://www.shimanet.ed.jp/izusho/ ,%>
+
+<%= link_to 'New Book' , new_book_path %>
