@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :auth
 
   # GET /users
   # GET /users.json
@@ -7,6 +8,15 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+private
+
+  def auth
+    name = 'izumo'
+    passwd ='syogyo'
+    authenticate_or_request_with_http_basic('Railbook') do |n,p|
+      n == name && p == passwd
+    end
+  end
   # GET /users/1
   # GET /users/1.json
   def show
