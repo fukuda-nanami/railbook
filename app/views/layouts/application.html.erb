@@ -2,7 +2,13 @@
 <html>
 <head>
 
+<div align = "right">
+ログインユーザー：<%= session[:username]%>
+<%= link_to "ログアウト",controller: :login,action: :index %>
+</div>
+
 <%= image_tag "railbook.png" %>
+
 <ul>
 
   <il><%= link_to"書籍一覧",books_path %></il><br>

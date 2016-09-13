@@ -9,15 +9,6 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-private
-
-  def auth
-    name = 'izumo'
-    passwd ='syogyo'
-    authenticate_or_request_with_http_basic('Railbook') do |n,p|
-      n == name && p == passwd
-    end
-  end
   # GET /users/1
   # GET /users/1.json
   def show
@@ -82,4 +73,11 @@ private
     def user_params
       params.require(:user).permit(:userid, :username, :password, :email)
     end
+  def auth
+    name = 'izumo'
+    passwd ='syogyo'
+    authenticate_or_request_with_http_basic('Railbook') do |n,p|
+      n == name && p == passwd
+    end
+  end
 end
